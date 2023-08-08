@@ -47,14 +47,12 @@ function Footer() {
           <img src={facebook} alt="facebook" />
         </a>
         <a href="#">
-          {" "}
           <img src={twiter} alt="twiter" />
         </a>
         <a href="#">
           <img src={pinterest} alt="pinterest" />
         </a>
         <a href="#">
-          {" "}
           <img src={instagram} alt="instagram" />
         </a>
       </div>
