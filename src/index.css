@@ -3,6 +3,7 @@
 }
 :root {
   --primary-color: hsl(0, 0%, 75%);
+  --primary-color-cyan: hsl(180, 66%, 49%);
 }
 
 body {
@@ -14,12 +15,21 @@ body {
   min-width: 1110px;
   font-size: 18px;
 }
-
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal centering */
+  justify-content: center; /* Vertical centering */
+  min-height: 100vh; /* Ensure full viewport height */
+}
 .App {
-  margin-left: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
 }
 button {
-  background-color: hsl(180, 66%, 49%);
+  background-color: var(--primary-color-cyan);
   padding: 0.5rem 0.8rem;
   border-radius: 20px;
   border: none;
@@ -33,6 +43,11 @@ button:active {
 }
 a {
   text-decoration: none;
+}
+.adv-stn,
+.boost,
+footer {
+  width: 120%;
 }
 
 /* -------- navigation---------- */
@@ -98,6 +113,10 @@ h1 {
 }
 /* ---------------end main-------------------- */
 /* ------------------input----------------------- */
+.input-container {
+  position: relative;
+  z-index: 5;
+}
 .input-bar {
   border-radius: 5px;
   margin-top: 3rem;
@@ -109,18 +128,30 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 .input-bar input {
   width: 45rem;
   height: 2.3rem;
   border-radius: 10px;
   margin-right: 0.8rem;
+  padding-left: 1.5rem;
 }
 
 .input-btn input[type="text"]::placeholder {
   color: var(--primary-color);
-  padding-left: 1rem;
+}
+.emptyInput {
+  border: 1px solid red;
+}
+.input-btn input[type="text"].emptyInput::placeholder {
+  color: red;
+}
+.empty-input-text {
+  margin-top: -1.3rem;
+  font-size: 12px;
+  color: red;
+  max-width: fit-content;
+  padding-left: 4.6rem;
 }
 .input-bar button {
   border-radius: 10px;
@@ -135,11 +166,34 @@ h1 {
   /* ------------------------ end input + advanced--------------- */
 }
 /* ------------------------advanced--------------- */
+.copied-btn {
+  background-color: black;
+  border-radius: 5px;
+}
+.shorten-link-showed {
+  color: var(--primary-color-cyan);
+}
+.shorted-link {
+  font-size: 16px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: left;
+  position: absolute;
+  top: 140px;
+  width: 57rem;
+  padding: 5px 0;
+}
+
+.copy-btn {
+  border-radius: 5px;
+}
 .adv-stn {
   background-color: hsl(229deg 28% 95%);
   padding: 5rem 0;
-  margin-top: -2rem;
-  width: 100%;
+  margin-top: -2.5rem;
+  position: relative;
+  z-index: 3;
 }
 .adv-intro {
   width: 500px;
@@ -153,7 +207,7 @@ h1 {
 hr {
   width: 60%;
   height: 4px;
-  background-color: hsl(180, 66%, 49%);
+  background-color: var(--primary-color-cyan);
   border: none;
   margin: 5.55rem auto -6.11rem;
 }
@@ -210,6 +264,7 @@ footer {
 .col {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 .socials img {
   margin-right: 1rem;
