@@ -41,9 +41,17 @@ button {
 button:active {
   transform: translateY(2px);
 }
+.green-btn:hover {
+  background-color: hsl(180deg 55% 75%);
+}
+
 a {
   text-decoration: none;
 }
+.black-hover:hover {
+  color: black;
+}
+
 .adv-stn,
 .boost,
 footer {
@@ -87,7 +95,8 @@ footer {
 .main {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
+  margin-top: 3em;
+  margin-bottom: 4em;
 }
 
 .main-text {
@@ -114,8 +123,11 @@ h1 {
 /* ---------------end main-------------------- */
 /* ------------------input----------------------- */
 .input-container {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  z-index: 5;
+  top: -11rem;
+  align-items: center;
 }
 .input-bar {
   border-radius: 5px;
@@ -151,27 +163,25 @@ h1 {
   font-size: 12px;
   color: red;
   max-width: fit-content;
-  padding-left: 4.6rem;
+  margin-right: 45rem;
 }
 .input-bar button {
   border-radius: 10px;
 }
 /* ------------------------end input--------------- */
-/* ------------------------ input + advanced--------------- */
-.input-stat-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  /* ------------------------ end input + advanced--------------- */
-}
+
 /* ------------------------advanced--------------- */
 .copied-btn {
   background-color: black;
+}
+.copy-btn {
   border-radius: 5px;
+  margin-right: 2rem;
+  width: 5rem;
 }
 .shorten-link-showed {
   color: var(--primary-color-cyan);
+  margin-right: 2rem;
 }
 .shorted-link {
   font-size: 16px;
@@ -179,21 +189,22 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   text-align: left;
-  position: absolute;
-  top: 140px;
   width: 57rem;
   padding: 5px 0;
+  margin: 0.5rem 0;
+}
+.origin-link-showed {
+  margin-right: auto;
+  padding-left: 1rem;
+}
+.short-link-copy-btn {
+  display: flex;
 }
 
-.copy-btn {
-  border-radius: 5px;
-}
 .adv-stn {
   background-color: hsl(229deg 28% 95%);
   padding: 5rem 0;
-  margin-top: -2.5rem;
   position: relative;
-  z-index: 3;
 }
 .adv-intro {
   width: 500px;

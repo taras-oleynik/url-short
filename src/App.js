@@ -11,11 +11,7 @@ function App() {
       <div className="App">
         <Nav />
         <Main />
-        <div className="input-stat-container">
-          <Input />
-          <AdvancedStat />
-        </div>
-
+        <AdvancedStat className="input-stat-container" />
         <BoostLinks />
         <Footer />
       </div>

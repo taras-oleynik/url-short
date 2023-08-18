@@ -9,7 +9,7 @@ function Main() {
           links are performing.
         </p>
         <div className="btn-start-container">
-          <button className="get-start-btn">Get Started</button>
+          <button className="get-start-btn green-btn">Get Started</button>
         </div>
       </div>
       <img

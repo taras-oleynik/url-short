@@ -1,80 +1,57 @@
 import { useState, useEffect, useReducer } from "react";
 import backGroundInput from "../images/bg-shorten-desktop.svg";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-
-function reducer(state, { originLink, shortLink }) {
-  return { ...state, [originLink]: shortLink };
-}
+import MappedLink from "../components/MappedLink";
 
 function InputBar() {
-  const [originLink, setOriginLink] = useState("");
-  const [sortLink, setShortLink] = useState(null);
-  const [copied, setCopied] = useState(false);
+  const [value, setValue] = useState("");
+  const [shortLink, setShortLink] = useState(null);
   const [emptyInput, setEmptyInput] = useState(false);
-  const [linkMappings, setLinkMappings] = useState({});
+  const [error, setError] = useState(false);
+  const [mappedLinks, setLinkMappings] = useState({});
 
-  const [state, dispatch] = useReducer(reducer, {});
-  async function handleClick() {
+  async function handleClick(originLink) {
     const res = await fetch(
       `https://api.shrtco.de/v2/shorten?url=${originLink}`
     );
     const data = await res.json();
-    const shortLink = data.result.full_short_link;
-    dispatch({ originLink, shortLink });
-  }
-  console.log("state:", state);
-
-  const btnClassName = copied ? "copied-btn" : "copy-btn";
-
-  function handleCopy() {
-    setCopied(true);
-  }
-
-  function handleInputChange({ target: { value } }) {
-    setOriginLink(value);
-  }
-  const fetchShrtLink = () => {
-    if (originLink) {
-      fetch(`https://api.shrtco.de/v2/shorten?url=${originLink}`)
-        .then((res) => res.json())
-        .then((data) => setShortLink(data.result.full_short_link));
-      // .catch((error) => console.error("Error fetching advice:", error));
-    } else {
-      setEmptyInput(true); // Set error state
+    if (!data.result) {
+      setEmptyInput(true);
+      return setError(true);
     }
-  };
+    const shortLink = data.result.full_short_link;
 
-  useEffect(() => {
-    fetchShrtLink();
+    setShortLink(shortLink);
+    setLinkMappings({ ...mappedLinks, [originLink]: shortLink });
+    setError(false);
     setEmptyInput(false);
-  }, []);
-
+  }
+  console.log(emptyInput);
   return (
     <div className="input-container">
       <div className="input-bar">
         <div className="input-btn">
           <input
             type="text"
-            value={originLink}
-            onChange={handleInputChange}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
             placeholder="Shorten a link here... "
             className={emptyInput ? "emptyInput" : ""}
           />
-          <button onClick={handleClick}>Shorten It!</button>
+          <button className="green-btn" onClick={() => handleClick(value)}>
+            Shorten It!
+          </button>
         </div>
       </div>
-      {sortLink && (
-        <div className="shorted-link">
-          <div className="origin-link-showed">{originLink}</div>
-          <div className="shorten-link-showed">{sortLink}</div>
-          <CopyToClipboard text={sortLink} onCopy={handleCopy}>
-            <button className={btnClassName}>
-              {copied ? "Copied!" : "Copy"}
-            </button>
-          </CopyToClipboard>
-        </div>
-      )}
       {emptyInput && <p className="empty-input-text">Please add a link</p>}
+
+      {shortLink &&
+        Object.entries(mappedLinks).map(([original, shortened]) => (
+          <MappedLink
+            key={original}
+            originLink={original}
+            shortLink={shortened}
+          />
+        ))}
     </div>
   );
 }

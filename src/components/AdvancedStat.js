@@ -1,9 +1,11 @@
 import fullyCustomizable from "../images/icon-fully-customizable.svg";
 import detailedRecords from "../images/icon-detailed-records.svg";
 import brandRecognition from "../images/icon-brand-recognition.svg";
+import InputBar from "./InputBar";
 function AdvancedStat() {
   return (
     <div className="adv-stn">
+      <InputBar />
       <div className="adv-title">
         <h2>Advanced Statistics </h2>
         <p className="intro adv-intro">
