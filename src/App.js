@@ -7,14 +7,12 @@ import BoostLinks from "./components/BoostLinks";
 import Footer from "./components/Footer";
 function App() {
   return (
-    <div className="container">
-      <div className="App">
-        <Nav />
-        <Main />
-        <AdvancedStat className="input-stat-container" />
-        <BoostLinks />
-        <Footer />
-      </div>
+    <div className="App">
+      <Nav />
+      <Main />
+      <AdvancedStat className="input-stat-container" />
+      <BoostLinks />
+      <Footer />
     </div>
   );
 }

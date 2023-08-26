@@ -4,10 +4,10 @@ function Main() {
     <div className="main">
       <div className="main-text">
         <h1>More than just shorter links</h1>
-        <p className="main-moto">
+        <div className="main-moto">
           Build your brand’s recognition and get detailed insights on how your
           links are performing.
-        </p>
+        </div>
         <div className="btn-start-container">
           <button className="get-start-btn green-btn">Get Started</button>
         </div>

@@ -25,7 +25,6 @@ function InputBar() {
     setError(false);
     setEmptyInput(false);
   }
-  console.log(emptyInput);
   return (
     <div className="input-container">
       <div className="input-bar">
