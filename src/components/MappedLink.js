@@ -10,6 +10,7 @@ function MappedLink({ originLink, shortLink }) {
   return (
     <div className="shorted-link">
       <div className="origin-link-showed">{originLink}</div>
+      <div className="origin-link-div"></div>
       <div className="short-link-copy-btn">
         <div className="shorten-link-showed">{shortLink}</div>
         <CopyToClipboard text={shortLink} onCopy={() => setCopied(true)}>

@@ -16,6 +16,7 @@ function Mobile() {
           <button className="nav-mobile">Features</button>
           <button className="nav-mobile">Pricing</button>
           <button className="nav-mobile">Resorses</button>
+          <div className="menu-div"></div>
           <button className="nav-mobile">Login</button>
           <button className="sign-btn green-btn">Sign Up</button>
         </div>
